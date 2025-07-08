@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mobile Number Validation</title>
+<style>
+  body { font-family: Arial, sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f4f4; }
+  .container { background:#fff; padding:2rem; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+  input { padding:0.5rem; width:200px; margin-right:0.5rem; }
+  button { padding:0.5rem 1rem; }
+  #message { margin-top:1rem; font-weight:bold; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Mobile Number Validation using JavaScript</h2>
+    <input type="text" id="mobile" placeholder="Enter 10 Digit Mobile Num">
+    <button id="validateBtn">Validate</button>
+    <div id="message"></div>
+  </div>
+<script>
+  document.getElementById('validateBtn').addEventListener('click', () => {
+    const mobile = document.getElementById('mobile').value.trim();
+    const msg = document.getElementById('message');
+    const pattern = /^[6-9]\d{9}$/;
+    if (pattern.test(mobile)) {
+      msg.style.color = 'green';
+      msg.textContent = '✅ Valid mobile number!';
+    } else {
+      msg.style.color = 'red';
+      msg.textContent = '❌ Please enter a valid 10-digit mobile number starting with 6‑9.';
+    }
+  });
+</script>
+</body>
+</html>
